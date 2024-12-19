@@ -1,0 +1,30 @@
+projection;
+strict;
+
+
+define behavior for zhr_c_trm //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use association trmpab { create; }
+  use association trmpax { create; }
+}
+
+define behavior for zhr_c_trmpab //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Bookings;
+}
+
+define behavior for zhr_c_trmpax //alias <alias_name>
+
+{
+  use update;
+  use delete;
+
+  use association _Bookings;
+}

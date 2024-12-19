@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition TRM'
+define service Zhr_sd_trm {
+  expose zhr_c_trm;
+  expose zhr_c_trmpax;
+  expose zhr_c_trmpab;
+}

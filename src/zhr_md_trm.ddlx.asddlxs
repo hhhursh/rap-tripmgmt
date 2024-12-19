@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+
+
+annotate view zhr_c_trm with
+{
+  @UI.facet: [    
+                         { id:                  'Bookings',
+                               purpose:         #STANDARD,
+                               type:            #IDENTIFICATION_REFERENCE,
+                               label:           'Bookings',
+                               position:        10 },                            
+
+                         { id:                'Passengers',
+                               purpose:         #STANDARD,
+                               type:             #LINEITEM_REFERENCE,
+                               label:           'Passengers',
+                               position:        20 ,
+                               targetElement: 'trmpax'},
+                          
+                         { id:                'Packages',
+                               purpose:         #STANDARD,
+                               type:             #LINEITEM_REFERENCE,
+                               label:           'Packages',
+                               position:        30 ,
+                               targetElement: 'trmpab'}
+                               
+          ]
+  @UI: { lineItem:       [ { position: 20,label: 'Booking ID', importance: #HIGH } ],
+          identification: [ { position: 20, label: 'Booking ID' } ] }
+  BookingID;
+  @UI: { lineItem:       [ { position: 30,label: 'Total Cost', importance: #HIGH } ],
+          identification: [ { position: 30, label: 'Total Cost' } ] }
+
+  @Search.defaultSearchElement: true
+  Cost_INR;
+  //@UI: { lineItem:       [ { position: 40,label: 'Currency', importance: #HIGH } ],
+  //    identification: [ { position: 40, label: 'Currency' } ] }
+  //@Search.defaultSearchElement: true
+  //Currency;
+  @UI: { lineItem:       [ { position: 40,label: 'Start Date', importance: #HIGH } ],
+          identification: [ { position: 40, label: 'Start Date' } ] }
+  @Search.defaultSearchElement: true
+  StartDate;
+  @UI: { lineItem:       [ { position: 50,label: 'End Date', importance: #HIGH } ],
+          identification: [ { position: 50, label: 'End Date' } ] }
+  @Search.defaultSearchElement: true
+  EndDate;
+}

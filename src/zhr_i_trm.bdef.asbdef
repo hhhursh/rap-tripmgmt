@@ -1,0 +1,92 @@
+managed implementation in class zbp_hr_i_trm unique;
+strict;
+
+define behavior for zhr_i_trm //alias <alias_name>
+persistent table ZHR_TRM_BKGHD
+//draft table ztrm_d
+lock master
+//total etag LastChangeDate
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  association trmaap { create; }
+  association trmpab { create; }
+  association trmpax { create; }
+  association trmpay { create; }
+
+    field ( readonly ) BookingID;
+
+
+  mapping for ZHR_TRM_BKGHD{
+    BookingID = bkgid;
+    Cost_INR = tlcost;
+    Currency = curr;
+    StartDate = strdat;
+    EndDate = enddat;
+    LastChangeDate = aedat;
+
+  }
+}
+
+define behavior for zhr_i_trmaap //alias <alias_name>
+persistent table ZHR_TRM_AAP
+//draft table ztrmaap_d
+lock dependent by _Bookings
+authorization dependent by _Bookings
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Bkgid;
+  field ( readonly ) Aapid;
+  field ( readonly ) Pabid;
+  association _Bookings;
+}
+
+define behavior for zhr_i_trmpab //alias <alias_name>
+persistent table zhr_trm_pab
+//draft table ztrmpab_d
+lock dependent by _Bookings
+authorization dependent by _Bookings
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Bkgid;
+  field ( readonly ) Pabid;
+  association _Bookings;
+}
+
+define behavior for zhr_i_trmpax //alias <alias_name>
+persistent table ZHR_TRM_PAX
+//draft table ztrmpax_d
+lock dependent by _Bookings
+authorization dependent by _Bookings
+//early numbering
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Bkgid;
+//  field ( readonly ) Paxid;
+  association _Bookings;
+
+  validation validateEmail on save{ field Email ; create;}
+}
+
+define behavior for zhr_i_trmpay //alias <alias_name>
+persistent table ZHR_TRM_PAY
+//draft table ztrmpay_d
+lock dependent by _Bookings
+authorization dependent by _Bookings
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Bkgid;
+  field ( readonly ) Payid;
+  association _Bookings;
+}
