@@ -26,6 +26,7 @@ as projection on zhr_i_trm
             EndDate ,
             
             trmpax: redirected to composition child  zhr_c_trmpax,
-            trmpab: redirected to composition child  zhr_c_trmpab       
+            trmpab: redirected to composition child  zhr_c_trmpab,
+            trmaap: redirected to composition child  zhr_c_trmaap       
                                    
 }

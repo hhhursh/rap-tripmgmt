@@ -3,13 +3,10 @@
 {
 "FROM":
 [
-"ZHR_TRM_AAP",
-"ZHR_TRM_ACT"
+"ZHR_TRM_PKG"
 ],
 "ASSOCIATED":
-[
-"ZHR_I_TRM"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

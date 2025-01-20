@@ -1,6 +1,7 @@
 @EndUserText.label: 'Service Definition TRM'
 define service Zhr_sd_trm {
-  expose zhr_c_trm;
-  expose zhr_c_trmpax;
-  expose zhr_c_trmpab;
+  expose zhr_c_trm    as Bookings;
+  expose zhr_c_trmpax as Passengers;
+  expose zhr_c_trmpab as Packages;
+  expose zhr_c_trmaap as Activities;
 }

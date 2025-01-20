@@ -23,6 +23,7 @@ define view entity zhr_c_trmpax
    @UI: { lineItem:       [ { position: 10,label: 'Passenger ID', importance: #HIGH } ],
           identification: [ { position: 10, label: 'Passenger ID' } ] }
   key Paxid as PaxId,
+
   key Bkgid as BkgID,
    @UI: { lineItem:       [ { position: 20,label: 'First Name', importance: #HIGH } ],
           identification: [ { position: 20, label: 'First Name' } ] }

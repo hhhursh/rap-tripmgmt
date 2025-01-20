@@ -8,15 +8,17 @@
     dataClass: #MIXED
 }
 define view entity zhr_i_trmaap as select from zhr_trm_aap
-association to parent zhr_i_trm as _Bookings on $projection.Bkgid = _Bookings.BookingID
+ inner join  zhr_trm_act as Activity on Activity.actid = zhr_trm_aap.actid
+ association to parent zhr_i_trm as _Bookings on $projection.Bkgid = _Bookings.BookingID
 {
-    key bkgid as Bkgid,
-    key aapid as Aapid,
-    key pabid as Pabid,
-    actid as Actid,
+    key zhr_trm_aap.bkgid as Bkgid,
+    key zhr_trm_aap.aapid as Aapid,
+    key zhr_trm_aap.pabid as Pabid,
+    Activity.actid as Actid,
+    Activity.actnam as ActName,
     @Semantics.amount.currencyCode: 'Curr'
-    cost as Cost,
-    curr as Curr,
+    Activity.cost as Cost,
+    Activity.curr as Curr,
     
     _Bookings
 }

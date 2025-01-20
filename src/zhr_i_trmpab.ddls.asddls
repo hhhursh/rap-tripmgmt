@@ -9,7 +9,7 @@
 }
 define view entity zhr_i_trmpab
   as select from zhr_trm_pab
-    inner join   zhr_trm_pkg as _pkgs on _pkgs.pkgid = zhr_trm_pab.pkgid
+   inner join   zhr_trm_pkg as _pkgs on _pkgs.pkgid = zhr_trm_pab.pkgid
  association to parent zhr_i_trm as _Bookings on $projection.Bkgid = _Bookings.BookingID
 {
   key zhr_trm_pab.pabid   as Pabid,

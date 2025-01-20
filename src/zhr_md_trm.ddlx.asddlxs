@@ -22,7 +22,14 @@ annotate view zhr_c_trm with
                                type:             #LINEITEM_REFERENCE,
                                label:           'Packages',
                                position:        30 ,
-                               targetElement: 'trmpab'}
+                               targetElement: 'trmpab'},
+                               
+                         { id:                'Activities',
+                               purpose:         #STANDARD,
+                               type:             #LINEITEM_REFERENCE,
+                               label:           'Activities',
+                               position:        40 ,
+                               targetElement: 'trmaap'}
                                
           ]
   @UI: { lineItem:       [ { position: 20,label: 'Booking ID', importance: #HIGH } ],

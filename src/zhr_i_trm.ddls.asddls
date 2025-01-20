@@ -15,9 +15,12 @@ define root view entity zhr_i_trm
       curr   as Currency,
       strdat as StartDate,
       enddat as EndDate,
-      
-      aedat as LastChangeDate,
-      
+      bkgstat as BkgStat,
+      erdat as CreationDate,
+      aedat as LastChangedDate,
+      ernam as CreatedBy,
+      aenam as LastChangedBy,
+              
       trmpax,
       trmpab,
       trmaap,

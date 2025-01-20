@@ -1,6 +1,6 @@
 projection;
-strict;
-
+strict ( 2 );
+//use draft;
 
 define behavior for zhr_c_trm //alias <alias_name>
 {
@@ -8,8 +8,16 @@ define behavior for zhr_c_trm //alias <alias_name>
   use update;
   use delete;
 
-  use association trmpab { create; }
-  use association trmpax { create; }
+  use association trmpab { create;  }
+  use association trmpax { create;  }
+  use association trmaap { create;  }
+
+//  use action Edit;
+//  use action Activate;
+//  use action Discard;
+//  use action Prepare;
+//  use action Resume;
+
 }
 
 define behavior for zhr_c_trmpab //alias <alias_name>
@@ -17,14 +25,21 @@ define behavior for zhr_c_trmpab //alias <alias_name>
   use update;
   use delete;
 
-  use association _Bookings;
+  use association _Bookings ; //{ with draft; }
 }
 
 define behavior for zhr_c_trmpax //alias <alias_name>
-
 {
   use update;
   use delete;
 
-  use association _Bookings;
+  use association _Bookings ; //{ with draft; }
+}
+
+define behavior for zhr_c_trmaap
+{
+    use update;
+    use delete;
+
+    use association _Bookings ; //{ with draft; }
 }
