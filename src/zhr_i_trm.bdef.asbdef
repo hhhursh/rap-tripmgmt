@@ -1,8 +1,9 @@
-managed implementation in class zbp_hr_i_trm unique;
+unmanaged implementation in class zbp_hr_i_trm unique;
 strict ( 2 );
 
+
 define behavior for zhr_i_trm //alias <alias_name>
-persistent table zhr_trm_bkghd
+//persistent table zhr_trm_bkghd
 lock master
 authorization master ( instance )
 //etag master <field_name>
@@ -14,11 +15,26 @@ authorization master ( instance )
   association trmaap { create; }
   association trmpab { create; }
   association trmpax { create; }
-//  association trmpay { create; }
+  //  association trmpay { create; }
+
+
+  mapping for zhr_trm_bkghd
+    {
+      BookingID       = bkgid;
+      Cost_INR        = tlcost;
+      Currency        = curr;
+      StartDate       = strdat;
+      EndDate         = enddat;
+      BkgStat         = bkgstat;
+      CreationDate    = erdat;
+      LastChangedDate = aedat;
+      CreatedBy       = ernam;
+      LastChangedBy   = aenam;
+    }
 }
 
 define behavior for zhr_i_trmaap //alias <alias_name>
-persistent table zhr_trm_aap
+//persistent table zhr_trm_aap
 lock dependent by _Bookings
 authorization dependent by _Bookings
 
@@ -31,7 +47,7 @@ authorization dependent by _Bookings
 }
 
 define behavior for zhr_i_trmpab //alias <alias_name>
-persistent table zhr_trm_pab
+//persistent table zhr_trm_pab
 lock dependent by _Bookings
 authorization dependent by _Bookings
 //etag master <field_name>
@@ -43,7 +59,7 @@ authorization dependent by _Bookings
 }
 
 define behavior for zhr_i_trmpax //alias <alias_name>
-persistent table zhr_trm_pax
+//persistent table zhr_trm_pax
 lock dependent by _Bookings
 authorization dependent by _Bookings
 //etag master <field_name>

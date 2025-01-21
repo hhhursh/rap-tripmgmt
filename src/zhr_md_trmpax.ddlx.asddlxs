@@ -1,0 +1,49 @@
+@Metadata.layer: #PARTNER
+
+
+
+  @UI.presentationVariant: [{
+  visualizations: [ { type: #AS_LINEITEM } ],
+  requestAtLeast: [ 'PaxId', 'FirstName', 'LastName', 'Age', 'Gender' ]}]
+  
+  @UI.headerInfo: {
+    typeName: 'Passenger',
+    typeNamePlural: 'Passenger',
+    title: {
+        type: #STANDARD,
+        value: 'PaxId'
+    }
+}
+
+annotate view zhr_c_trmpax with
+{
+  @UI.facet: [          { id:                  'Passenger',
+                             purpose:         #STANDARD,
+                             type:            #IDENTIFICATION_REFERENCE,
+                             label:           'Passenger',
+                             position:        10 }      ]
+  @UI: { lineItem:       [ { position: 10,label: 'Passenger ID', importance: #HIGH } ],
+         identification: [ { position: 10, label: 'Passenger ID', qualifier: 'psng' } ] }
+  PaxId;
+  @UI: { lineItem:       [ { position: 20,label: 'First Name', importance: #HIGH } ],
+         identification: [ { position: 20, label: 'First Name' } ] }
+  FirstName;
+  @UI: { lineItem:       [ { position: 30,label: 'Last Name', importance: #HIGH } ],
+      identification: [ { position: 30, label: 'Last Name', qualifier: 'psng' } ] }
+  LastName;
+  @UI: { lineItem:       [ { position: 40,label: 'Age', importance: #HIGH } ],
+    identification: [ { position: 40, label: 'Age', qualifier: 'psng' } ] }
+  Age;
+  @UI: { lineItem:       [ { position: 50,label: 'Gender', importance: #HIGH } ],
+    identification: [ { position: 50, label: 'Gender' } ] }
+  Gender;
+  @UI: { lineItem:       [ { position: 60,label: 'Address', importance: #HIGH } ],
+    identification: [ { position: 60, label: 'Address' } ] }
+  Address;
+  @UI: { lineItem:       [ { position: 70,label: 'Phone', importance: #HIGH } ],
+    identification: [ { position: 70, label: 'Phone' } ] }
+  Phone;
+  @UI: { lineItem:       [ { position: 80,label: 'Email ID', importance: #HIGH } ],
+    identification: [ { position: 100, label: 'Email ID' } ] }
+  Email;
+}

@@ -1,0 +1,36 @@
+@Metadata.layer: #PARTNER
+
+
+@UI.headerInfo: {
+  typeName: 'Activities',
+  typeNamePlural: 'Activities',
+  title: {
+      type: #STANDARD,
+      value: 'Aapid'
+  }
+}
+
+annotate view zhr_c_trmaap with
+{
+  @UI.facet: [          { id:   'Activites',
+                             purpose:         #STANDARD,
+                               type:            #IDENTIFICATION_REFERENCE,
+                               label:           'Activities',
+                               position:        10 }      ]
+  Bkgid;
+  @UI: { lineItem:       [ { position: 10, label: 'Activity ID', importance: #HIGH } ],
+          identification: [ { position: 10, label: 'Activity ID' } ] }
+  Aapid;
+  @UI: { lineItem:       [ { position: 20, label: 'PABID', importance: #HIGH } ],
+    identification: [ { position: 20, label: 'PABID' } ] }
+  Pabid;
+  @UI: { lineItem:       [ { position: 30, label: 'Name', importance: #HIGH } ],
+  identification: [ { position: 30, label: 'Name' } ] }
+  ActName;
+  @UI: { lineItem:       [ { position: 40, label: 'Cost', importance: #HIGH } ],
+   identification: [ { position: 40, label: 'Cost' } ] }
+  Cost;
+  @UI: { lineItem:       [ { position: 50, label: 'Currency', importance: #HIGH } ],
+   identification: [ { position: 50, label: 'Currency' } ] }
+  Curr;
+}

@@ -1,55 +1,71 @@
-@Metadata.layer: #CORE
+@Metadata.layer: #PARTNER
 
+@UI:{
+headerInfo:{
+    typeName: 'Bookings',
+    typeNamePlural: 'Bookings',
+    title:{
+        type: #STANDARD,
+        label: 'Booking',
+        value:'BookingID'
 
+    }
+}
+
+}
 annotate view zhr_c_trm with
 {
-  @UI.facet: [    
+  @UI.facet: [
                          { id:                  'Bookings',
                                purpose:         #STANDARD,
                                type:            #IDENTIFICATION_REFERENCE,
                                label:           'Bookings',
-                               position:        10 },                            
+                               position:        10 },
 
                          { id:                'Passengers',
                                purpose:         #STANDARD,
-                               type:             #LINEITEM_REFERENCE,
+                               type:             #IDENTIFICATION_REFERENCE,
                                label:           'Passengers',
                                position:        20 ,
+                               targetQualifier: 'psng',
                                targetElement: 'trmpax'},
-                          
+
                          { id:                'Packages',
                                purpose:         #STANDARD,
                                type:             #LINEITEM_REFERENCE,
                                label:           'Packages',
                                position:        30 ,
                                targetElement: 'trmpab'},
-                               
+
                          { id:                'Activities',
                                purpose:         #STANDARD,
                                type:             #LINEITEM_REFERENCE,
                                label:           'Activities',
                                position:        40 ,
                                targetElement: 'trmaap'}
-                               
+
           ]
-  @UI: { lineItem:       [ { position: 20,label: 'Booking ID', importance: #HIGH } ],
-          identification: [ { position: 20, label: 'Booking ID' } ] }
+  @UI: { lineItem:       [ { position: 10,label: 'Booking ID', importance: #HIGH } ],
+          identification: [ { position: 10, label: 'Booking ID' } ] }
   BookingID;
-  @UI: { lineItem:       [ { position: 30,label: 'Total Cost', importance: #HIGH } ],
-          identification: [ { position: 30, label: 'Total Cost' } ] }
+  
+  @UI: { lineItem:       [ { position: 20,label: 'Total Cost', importance: #HIGH } ],
+          identification: [ { position: 20, label: 'Total Cost' } ] }
 
   @Search.defaultSearchElement: true
   Cost_INR;
+  
   //@UI: { lineItem:       [ { position: 40,label: 'Currency', importance: #HIGH } ],
   //    identification: [ { position: 40, label: 'Currency' } ] }
   //@Search.defaultSearchElement: true
   //Currency;
-  @UI: { lineItem:       [ { position: 40,label: 'Start Date', importance: #HIGH } ],
-          identification: [ { position: 40, label: 'Start Date' } ] }
+  @UI: { lineItem:       [ { position: 30,label: 'Start Date', importance: #HIGH } ],
+          identification: [ { position: 30, label: 'Start Date' } ] }
   @Search.defaultSearchElement: true
   StartDate;
-  @UI: { lineItem:       [ { position: 50,label: 'End Date', importance: #HIGH } ],
-          identification: [ { position: 50, label: 'End Date' } ] }
+  
+  @UI: { lineItem:       [ { position: 40,label: 'End Date', importance: #HIGH } ],
+          identification: [ { position: 40, label: 'End Date' } ] }
   @Search.defaultSearchElement: true
   EndDate;
 }
